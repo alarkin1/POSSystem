@@ -17,7 +17,6 @@ public class DiscountQuantity implements DiscountStrategy {
     public DiscountQuantity(int quantity, DiscountCalcStrategy discountCalculationMethod) {
         this.discountCalculationMethod = discountCalculationMethod;
         this.quantity = quantity;
-        
     }
     
     

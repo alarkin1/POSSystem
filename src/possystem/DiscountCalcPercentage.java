@@ -25,6 +25,8 @@ public class DiscountCalcPercentage implements DiscountCalcStrategy {
         this.amountOff = amountOff;
     }
     
+    
+    //calls twice becduase the LineItem calls this method once and then calculateAndReturnSavings calls it also
     @Override
     public double calculateAndReturnSavings(double price, int quantity) {
         return (price * quantity) * (amountOff * .01);
@@ -32,7 +34,7 @@ public class DiscountCalcPercentage implements DiscountCalcStrategy {
 
     @Override
     public double calculateAndReturnDiscountedPrice(double price, int quantity) {
-        return price - calculateAndReturnSavings(price,quantity);
+        return ((price * quantity) - calculateAndReturnSavings(price, quantity));
     }
     
     

@@ -14,12 +14,9 @@ public class Startup {
     /**
      * @param args the command line arguments                                                                          //amount discount calc method(dollars off)
      */
-    public static void main(String[] args) {
-        
-                                             //cust id  customers line items        //product in line item  discount type   amntNeeded discount calc type  cash off//price//quantity, CashRegister
-        Sale newSale = new Sale(new Customer("BOB-123", new LineItem[]{ new LineItem(new PackerBallCap(new DiscountQuantity(2, new DiscountCalcFlat(5.00)), 30.0), 2)}), new CashRegister());
-        newSale.startSale();
-        
+    public static void main(String[] args) {                                    //cust id  customers line items        //product in line item  discount type   amntNeeded discount calc type  cash off//price//quantity, CashRegister
+        Sale newSale = new Sale(new Customer("BOB-123", new LineItem[]{ new LineItem(new PackerBallCap(new DiscountByProduct(new DiscountCalcFlat(10)), 30.0), 2)}), new CashRegister());
+        newSale.startSale();    
     }
     
 }

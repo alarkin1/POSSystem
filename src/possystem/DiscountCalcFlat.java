@@ -19,6 +19,7 @@ public class DiscountCalcFlat implements DiscountCalcStrategy {
         this.amountOff = amountOff;
     }   
     
+        //calls twice becduase the LineItem calls this method once and then calculateAndReturnDiscountedPrice calls it also
     @Override
     public double calculateAndReturnSavings(double price, int quantity) {
         return amountOff;
