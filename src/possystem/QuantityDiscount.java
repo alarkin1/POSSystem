@@ -11,25 +11,28 @@ package possystem;
  */
 public class QuantityDiscount implements DiscountStrategy {
 
-    private int baselineQuantity;
+    private DiscountCalcStrategy discountCalculationMethod;
+    private int quantity = 1;
 
-    public QuantityDiscount(int baselineQuantity) {
-        this.baselineQuantity = baselineQuantity;
-    }
-
-    @Override
-    public double getSavings(double price, int quantity) {
-        if (quantity >= baselineQuantity) {
-            return 20;
-        } else {
-            return 0;
-        }
+    public QuantityDiscount(int quantity, DiscountCalcStrategy discountCalculationMethod) {
+        this.discountCalculationMethod = discountCalculationMethod;
+        this.quantity = quantity;
         
     }
+    
+    
+    
+    @Override
+    public void setDiscountCalculationMethod(DiscountCalcStrategy discountCalculationMethod) {
+        this.discountCalculationMethod = discountCalculationMethod;
+    }
 
     @Override
-    public double getDiscountedPrice(double price, int quantity) {
-        return (price * quantity) - getSavings(price, quantity);
+    public DiscountCalcStrategy getDiscountCalculationMethod() {
+        return discountCalculationMethod;
     }
+    
+    
+
 
 }

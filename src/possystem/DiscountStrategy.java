@@ -10,6 +10,8 @@ package possystem;
  * @author Alex
  */
 public interface DiscountStrategy {
-    public abstract double getSavings(double price, int quantity);
-    public abstract double getDiscountedPrice(double price, int quantity);
+
+    public abstract void setDiscountCalculationMethod(DiscountCalcStrategy discountCalculationMethod);
+    
+    public abstract DiscountCalcStrategy getDiscountCalculationMethod();
 }

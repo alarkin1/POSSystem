@@ -10,16 +10,19 @@ package possystem;
  * @author Alex
  */
 public class LineItem {
+
     private int quantity;
     private String productName;
     private ProductStrategy product;
     private double costOfLineItem;
     private double totalSavingsForLineItem;
 
-    public LineItem(ProductStrategy product,int quantity) {
+    public LineItem(ProductStrategy product, int quantity) {
         this.quantity = quantity;
         this.product = product;
-    }    
+        costOfLineItem = product.getDiscountStrategy().getDiscountCalculationMethod().calculateAndReturnDiscountedPrice(product.getPrice(), quantity);
+        totalSavingsForLineItem = product.getDiscountStrategy().getDiscountCalculationMethod().calculateAndReturnSavings(product.getPrice(), quantity);
+    }
 
     public int getQuantity() {
         return quantity;
@@ -50,16 +53,15 @@ public class LineItem {
     }
 
     public void setCostOfLineItem(double costOfLineItem) {
-        this.costOfLineItem = costOfLineItem;
+        costOfLineItem = product.getDiscountStrategy().getDiscountCalculationMethod().calculateAndReturnDiscountedPrice(product.getPrice(), quantity);
     }
 
     public double getTotalSavingsForLineItem() {
         return totalSavingsForLineItem;
     }
 
-    public void setTotalSavingsForLineItem(double totalSavingsForLineItem) {
-        this.totalSavingsForLineItem = totalSavingsForLineItem;
+    public void calculateTotalSavingsForLineItem() {
+        totalSavingsForLineItem = product.getDiscountStrategy().getDiscountCalculationMethod().calculateAndReturnSavings(product.getPrice(), quantity);
     }
-    
-    
+
 }

@@ -10,5 +10,7 @@ package possystem;
  * @author Alex
  */
 public interface DiscountCalcStrategy {
-    public abstract double calculateAndReturnSavings(double price, double amountOff);
+    public abstract double calculateAndReturnSavings(double price, int quantity);
+    
+    public abstract double calculateAndReturnDiscountedPrice(double price, int quantity);
 }
