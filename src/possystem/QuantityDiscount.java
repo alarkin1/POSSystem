@@ -20,15 +20,16 @@ public class QuantityDiscount implements DiscountStrategy {
     @Override
     public double getSavings(double price, int quantity) {
         if (quantity >= baselineQuantity) {
-
+            return 20;
+        } else {
+            return 0;
         }
-        return 20;
+        
     }
 
     @Override
-    public double getDiscountedPrice() {
-        
-        return 290;
+    public double getDiscountedPrice(double price, int quantity) {
+        return (price * quantity) - getSavings(price, quantity);
     }
 
 }
