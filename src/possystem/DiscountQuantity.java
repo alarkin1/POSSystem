@@ -9,12 +9,12 @@ package possystem;
  *
  * @author Alex
  */
-public class QuantityDiscount implements DiscountStrategy {
+public class DiscountQuantity implements DiscountStrategy {
 
     private DiscountCalcStrategy discountCalculationMethod;
     private int quantity = 1;
 
-    public QuantityDiscount(int quantity, DiscountCalcStrategy discountCalculationMethod) {
+    public DiscountQuantity(int quantity, DiscountCalcStrategy discountCalculationMethod) {
         this.discountCalculationMethod = discountCalculationMethod;
         this.quantity = quantity;
         
