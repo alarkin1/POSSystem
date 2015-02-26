@@ -14,10 +14,11 @@ public class CashRegister {
     //private ReceiptPrinter receiptPrinter = new ReceiptPrinter();
     //private CustomerReader customerReader = new CustomerReader();
     public CashRegister() {
+        
     }
 
     public void processLineItems(LineItem[] customersLineItems) {
-
+        System.out.println(customersLineItems[0].getCostOfLineItem());
     }
 
     private double getTotalCostOfItems(LineItem[] customersLineItems) {

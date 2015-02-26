@@ -16,6 +16,11 @@ public class LineItem {
     private double costOfLineItem;
     private double totalSavingsForLineItem;
 
+    public LineItem(ProductStrategy product,int quantity) {
+        this.quantity = quantity;
+        this.product = product;
+    }    
+
     public int getQuantity() {
         return quantity;
     }

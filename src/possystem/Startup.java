@@ -15,7 +15,9 @@ public class Startup {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Sale newSale = new Sale();
+        Sale newSale = new Sale(new Customer("BOB-123", new LineItem[]{ new LineItem(new PackerBallCap(new QuantityDiscount(2), 30.0), 2)}), new CashRegister());
+        newSale.startSale();
+        
     }
     
 }

@@ -10,5 +10,33 @@ package possystem;
  * @author Alex
  */
 public class Sale {
-    
+
+    private Customer newCustomer;
+    private CashRegister newCashRegister;
+
+    public Sale(Customer newCustomer, CashRegister newCashRegister) {
+        this.newCustomer = newCustomer;
+        this.newCashRegister = newCashRegister;
+    }
+
+    public void startSale() {
+        newCashRegister.processLineItems(newCustomer.getCustomersLineItems());
+    }
+
+    public Customer getNewCustomer() {
+        return newCustomer;
+    }
+
+    public void setNewCustomer(Customer newCustomer) {
+        this.newCustomer = newCustomer;
+    }
+
+    public CashRegister getNewCashRegister() {
+        return newCashRegister;
+    }
+
+    public void setNewCashRegister(CashRegister newCashRegister) {
+        this.newCashRegister = newCashRegister;
+    }
+
 }

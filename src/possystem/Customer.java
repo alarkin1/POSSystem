@@ -18,6 +18,8 @@ public class Customer {
         this.customerID = customerID;
         this.customersLineItems = customersLineItems;
     }
+    
+    
 
     public String getCustomerID() {
         return customerID;
