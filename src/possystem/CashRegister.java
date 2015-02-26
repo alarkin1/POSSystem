@@ -13,14 +13,19 @@ public class CashRegister {
 
     //private ReceiptPrinter receiptPrinter = new ReceiptPrinter();
     //private CustomerReader customerReader = new CustomerReader();
-
     public CashRegister() {
     }
 
     public void processLineItems(LineItem[] customersLineItems) {
+
+    }
+
+    private double getTotalCostOfItems(LineItem[] customersLineItems) {
+        double runningTotalCost = 0;
         for (LineItem lineItem : customersLineItems) {
-            
+            runningTotalCost += lineItem.getCostOfLineItem();
         }
+        return runningTotalCost;
     }
 
 }
