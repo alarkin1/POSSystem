@@ -19,8 +19,8 @@ public class LineItem {
     public LineItem(ProductStrategy product, int quantity) {
         this.quantity = quantity;
         this.product = product;
-        costOfLineItem = product.getDiscountStrategy().getDiscountCalculationMethod().calculateAndReturnDiscountedPrice(product.getPrice(), quantity);
-        totalSavingsForLineItem = product.getDiscountStrategy().getDiscountCalculationMethod().calculateAndReturnSavings(product.getPrice(), quantity);
+        costOfLineItem = product.getDiscountStrategy().calculateAndReturnDiscountedPrice(product.getPrice(), quantity);
+        totalSavingsForLineItem = product.getDiscountStrategy().calculateAndReturnSavings(product.getPrice(), quantity);
     }
 
     public int getQuantity() {
@@ -44,15 +44,15 @@ public class LineItem {
     }
 
     public void setCostOfLineItem(double costOfLineItem) {
-        costOfLineItem = product.getDiscountStrategy().getDiscountCalculationMethod().calculateAndReturnDiscountedPrice(product.getPrice(), quantity);
+        costOfLineItem = product.getDiscountStrategy().calculateAndReturnDiscountedPrice(product.getPrice(), quantity);
     }
 
     public double getTotalSavingsForLineItem() {
         return totalSavingsForLineItem;
     }
 
-    public void calculateTotalSavingsForLineItem() {
-        totalSavingsForLineItem = product.getDiscountStrategy().getDiscountCalculationMethod().calculateAndReturnSavings(product.getPrice(), quantity);
+    public void setTotalSavingsForLineItem() {
+        totalSavingsForLineItem = product.getDiscountStrategy().calculateAndReturnSavings(costOfLineItem, quantity);//.calculateAndReturnSavings(product.getPrice(), quantity);
     }
 
 }

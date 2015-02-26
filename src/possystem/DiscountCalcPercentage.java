@@ -32,10 +32,10 @@ public class DiscountCalcPercentage implements DiscountCalcStrategy {
         return (price * quantity) * (amountOff * .01);
     }
 
-    @Override
-    public double calculateAndReturnDiscountedPrice(double price, int quantity) {
-        return ((price * quantity) - calculateAndReturnSavings(price, quantity));
-    }
+//    @Override
+//    public double calculateAndReturnDiscountedPrice(double price, int quantity) {
+//        return ((price * quantity) - calculateAndReturnSavings(price, quantity));
+//    }
     
     
 

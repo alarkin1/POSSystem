@@ -13,5 +13,7 @@ public interface DiscountStrategy {
 
     public abstract void setDiscountCalculationMethod(DiscountCalcStrategy discountCalculationMethod);
     
-    public abstract DiscountCalcStrategy getDiscountCalculationMethod();
+    public abstract double calculateAndReturnSavings(double price, int quantity);
+    
+    public abstract double calculateAndReturnDiscountedPrice(double price, int quantity);
 }

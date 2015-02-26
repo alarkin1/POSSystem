@@ -12,22 +12,29 @@ package possystem;
 public class DiscountQuantity implements DiscountStrategy {
 
     private DiscountCalcStrategy discountCalculationMethod;
-    private int quantity = 1;
+    private int quantityBaseDefault = 1;
 
-    public DiscountQuantity(int quantity, DiscountCalcStrategy discountCalculationMethod) {
+    public DiscountQuantity(int quantityBaseDefault, DiscountCalcStrategy discountCalculationMethod) {
         this.discountCalculationMethod = discountCalculationMethod;
-        this.quantity = quantity;
+        this.quantityBaseDefault = quantityBaseDefault;
     }
-    
-    
-    
+
     @Override
     public void setDiscountCalculationMethod(DiscountCalcStrategy discountCalculationMethod) {
         this.discountCalculationMethod = discountCalculationMethod;
     }
 
     @Override
-    public DiscountCalcStrategy getDiscountCalculationMethod() {
-        return discountCalculationMethod;
+    public double calculateAndReturnSavings(double price, int quantity) {
+        if (quantity >= quantityBaseDefault) {
+            return discountCalculationMethod.calculateAndReturnSavings(price, quantity);
+        } else {
+            return 0;
+        }
+    }
+
+    @Override
+    public double calculateAndReturnDiscountedPrice(double price, int quantity) {
+        return (quantity * price) - calculateAndReturnSavings(price, quantity);
     }
 }
