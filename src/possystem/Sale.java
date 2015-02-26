@@ -20,7 +20,7 @@ public class Sale {
     }
 
     public void startSale() {
-        newCashRegister.processLineItems(newCustomer.getCustomersLineItems());
+       // newCashRegister.processLineItems(newCustomer.getCustomersLineItems());
     }
 
     public Customer getNewCustomer() {
