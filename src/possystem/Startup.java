@@ -16,7 +16,7 @@ public class Startup {
      */
     public static void main(String[] args) {
         
-                                             //cust id  customers line items        //product in line item  discount type                                 //ptice  quantity purchased, CashRegister
+                                             //cust id  customers line items        //product in line item  discount type   amntNeeded discount calc type  cash off//price//quantity, CashRegister
         Sale newSale = new Sale(new Customer("BOB-123", new LineItem[]{ new LineItem(new PackerBallCap(new QuantityDiscount(2, new DiscountCalcFlat(5.00)), 30.0), 2)}), new CashRegister());
         newSale.startSale();
         

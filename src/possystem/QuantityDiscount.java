@@ -31,8 +31,4 @@ public class QuantityDiscount implements DiscountStrategy {
     public DiscountCalcStrategy getDiscountCalculationMethod() {
         return discountCalculationMethod;
     }
-    
-    
-
-
 }

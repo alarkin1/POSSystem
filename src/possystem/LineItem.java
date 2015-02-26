@@ -12,7 +12,6 @@ package possystem;
 public class LineItem {
 
     private int quantity;
-    private String productName;
     private ProductStrategy product;
     private double costOfLineItem;
     private double totalSavingsForLineItem;
@@ -30,14 +29,6 @@ public class LineItem {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
     }
 
     public ProductStrategy getProduct() {
