@@ -19,6 +19,8 @@ public class CashRegister {
 
     public void processLineItems(LineItem[] customersLineItems) {
         System.out.println(customersLineItems[0].getCostOfLineItem());
+        System.out.println(customersLineItems[0].getProduct().getProductName());
+        System.out.println(customersLineItems[0].getQuantity());
     }
 
     private double getTotalCostOfItems(LineItem[] customersLineItems) {
