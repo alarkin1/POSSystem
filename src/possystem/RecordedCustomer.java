@@ -9,11 +9,16 @@ package possystem;
  *
  * @author Alex
  */
-public class Receipt {
+public class RecordedCustomer implements DatabaseCustomer{
+    String name;
 
-    private Database database = new Database();
-
-    public void outputReceipt(String customerId) {
-        System.out.println(database.findCustomerAndReturnCustomer(customerId));
+    public RecordedCustomer(String name) {
+        this.name = name;
     }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+    
 }

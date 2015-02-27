@@ -9,11 +9,6 @@ package possystem;
  *
  * @author Alex
  */
-public class Receipt {
-
-    private Database database = new Database();
-
-    public void outputReceipt(String customerId) {
-        System.out.println(database.findCustomerAndReturnCustomer(customerId));
-    }
+public interface DatabaseCustomer {
+    public abstract String getName();
 }

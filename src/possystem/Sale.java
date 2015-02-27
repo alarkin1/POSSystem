@@ -13,7 +13,7 @@ public class Sale {
 
     private Customer newCustomer;
     private CashRegister newCashRegister;
-    private PhysicalItem[] itemsToBePurchased;
+    private LineItem[] itemsToBePurchased;
 
     public Sale(Customer newCustomer, CashRegister newCashRegister) {
         this.newCustomer = newCustomer;
@@ -43,5 +43,4 @@ public class Sale {
     public void addCustItemsToSale(Customer newCustomer) {
         System.arraycopy(newCustomer.getCustomerItems(), 0, itemsToBePurchased, 0, newCustomer.getCustomerItems().length+1);
     }
-
 }

@@ -13,11 +13,10 @@ public class CashRegister {
    // private CustomerReader customerReader = new CustomerReader();
     private Receipt virtualReceipt = new Receipt();
     public CashRegister() {
-       // virtualReceipt.
     }
 
     public void processLineItems(LineItem[] customersLineItems) {
-
+        
     }
 
 }

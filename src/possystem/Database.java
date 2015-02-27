@@ -17,6 +17,27 @@ public class Database {
     private Customer[] tableOfCustomers = {};
 
     public Database() {
-        System.out.println(tableOfProducts[0].getProductName());
+//        System.out.println(tableOfProducts[0].getProductName());
     }
+
+    public ProductStrategy findProductViaUpcAndReturnUpc(int upc) {
+        for (ProductStrategy product : tableOfProducts) {
+            if (product.getUpc() == upc) {
+                return product;
+            }
+        }
+        System.out.println("Error: That item doesn't exist in the database!");
+        return null;
+    }
+
+    public Customer findCustomerAndReturnCustomer(String customerId) {
+        for (Customer customer : tableOfCustomers) {
+            if (customer.getCustomerID() == customerId) {
+                return customer;
+            }
+        }
+        System.out.println("Error: That customer doesn't exist in the database!");
+        return null;
+    }
+
 }

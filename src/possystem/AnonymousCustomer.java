@@ -9,11 +9,12 @@ package possystem;
  *
  * @author Alex
  */
-public class Receipt {
+public class AnonymousCustomer implements DatabaseCustomer {
 
-    private Database database = new Database();
+    String name = "Anonymous Customer";
 
-    public void outputReceipt(String customerId) {
-        System.out.println(database.findCustomerAndReturnCustomer(customerId));
+    public String getName() {
+        return name;
     }
+
 }
