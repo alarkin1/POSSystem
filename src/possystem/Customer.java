@@ -34,5 +34,7 @@ public class Customer {
     public void setCustomerItems(LineItem[] custLineItems) {
         this.custLineItems = custLineItems;
     }
+    
+    
 
 }

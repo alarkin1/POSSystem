@@ -14,10 +14,10 @@ public class Database {
     private ProductStrategy[] tableOfProducts = {
         new PackerBallCap(new DiscountByProduct(new DiscountCalcFlat(10.0)), 20.0)
     };
-    private DatabaseCustomerStrategy[] tableOfCustomers = { new RecordedCustomer("Bob The Liberal", "BOB-123")};
+    private DatabaseCustomerStrategy[] tableOfCustomers = {new RecordedCustomer("Bob The Fantastic", "BOB-123")};
 
     public Database() {
-//        System.out.println(tableOfProducts[0].getProductName());
+        
     }
 
     public ProductStrategy findProductViaUpcAndReturnUpc(int upc) {

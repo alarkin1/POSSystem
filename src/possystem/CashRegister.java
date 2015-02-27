@@ -14,23 +14,27 @@ public class CashRegister {
     // private CustomerReader customerReader = new CustomerReader();
     private Receipt virtualReceipt = new Receipt();
     private double salesTaxRatePerc = 5;
+    private ReceiptPrinter receiptPrinter;
 
-    public CashRegister(double salesTaxRatePerc) {
+    public CashRegister(double salesTaxRatePerc, ReceiptPrinter receiptPrinter) {
+        this.receiptPrinter = receiptPrinter;
         this.salesTaxRatePerc = salesTaxRatePerc;
     }
 
-    public CashRegister() {
-
+    public CashRegister(ReceiptPrinter receiptPrinter) {
+        this.receiptPrinter = receiptPrinter;
     }
+    
+    
 
     public void processLineItems(LineItem[] customersLineItems, String customerId) {
+        double totalSaved = 0;
+        double subtotal = 0;
         String receiptOutput = "";
         receiptOutput += "Thank you for shopping at Kohls, " + virtualReceipt.getDatabase().findCustomerAndReturnCustomer(customerId).getName().toUpperCase() + "\n";
         receiptOutput += "------------------------------------------------------\n";
         receiptOutput += "Product Name, Product Id, Qty, Discounted Price\n";
         receiptOutput += "------------------------------------------------------\n";
-        double totalSaved = 0;
-        double subtotal = 0;
         for (LineItem lineItem : customersLineItems) {
             PhysicalItem item = lineItem.getItem();
             ProductStrategy product = virtualReceipt.getDatabase().findProductViaUpcAndReturnUpc(item.getUpc());
@@ -46,12 +50,17 @@ public class CashRegister {
             totalSaved += product.getDiscountStrategy().calculateAndReturnSavings(product.getPrice(), lineItem.getQuantity());
             subtotal += discountedPrice;
         }
+        double salesTaxAmount = (subtotal * (salesTaxRatePerc / 100));
         receiptOutput += "------------------------------------------------------\n";
         receiptOutput += "Subtotal: $" + subtotal + "\n";
-        receiptOutput += "$" + subtotal + " @ " + salesTaxRatePerc + "%  Tax:   $" + (subtotal * (salesTaxRatePerc / 100)) + "\n";
-        receiptOutput += "TOTAL:  $" + subtotal + "\n\n\n";
-        receiptOutput += "TOTAL SAVED:        $" + totalSaved + "\n";
+        receiptOutput += "$" + subtotal + " @ " + salesTaxRatePerc + "%  Tax:   $" + salesTaxAmount + "\n";
+        receiptOutput += "TOTAL:  $" + (subtotal + salesTaxAmount) + "\n\n\n";
+        receiptOutput += "TOTAL SAVED:        $" + (totalSaved - salesTaxAmount) + "\n";
         virtualReceipt.setReceiptText(receiptOutput);
+        forwardReceiptTextToPrinter();
     }
-    
+
+    public void forwardReceiptTextToPrinter() {
+        receiptPrinter.printReceipt(virtualReceipt.getReceiptText());
+    }
 }

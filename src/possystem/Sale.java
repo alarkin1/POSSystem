@@ -20,7 +20,11 @@ public class Sale {
         this.newCashRegister = newCashRegister;
     }
 
-    public void startSale() {
+    public void startSale(Customer newCustomer) {
+        setNewCustomer(newCustomer);
+    }
+
+    public void endSale() {
         newCashRegister.processLineItems(newCustomer.getCustomerItems(), newCustomer.getCustomerID());
     }
 
@@ -42,5 +46,9 @@ public class Sale {
 
     public void addCustItemsToSale(Customer newCustomer) {
         System.arraycopy(newCustomer.getCustomerItems(), 0, itemsToBePurchased, 0, newCustomer.getCustomerItems().length + 1);
+    }
+
+    public void addItemsToSale(LineItem[] itemsToAdd) {
+        System.arraycopy(itemsToAdd, 0, itemsToBePurchased, 0, newCustomer.getCustomerItems().length + 1);
     }
 }

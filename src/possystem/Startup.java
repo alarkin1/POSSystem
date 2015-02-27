@@ -12,11 +12,15 @@ package possystem;
 public class Startup {
 
     /**
-     * @param args the command line arguments                                                                          //amount discount calc method(dollars off)
+     * @param args the command line arguments
      */
-    public static void main(String[] args) {                                    //cust id  customers line items        //product in line item  discount type   amntNeeded discount calc type  cash off//price//quantity, CashRegister
-        Sale newSale = new Sale(new Customer("BOB-123", new LineItem[]{new LineItem(3, new PhysicalItem(98532))}), new CashRegister());
-        newSale.startSale();    
+    public static void main(String[] args) {                                   
+        Sale newSale = new Sale(new Customer("BOB-123", new LineItem[]{new LineItem(3, new PhysicalItem(98532))}), new CashRegister(new ReceiptPrinter(new OutputGUI())));
+        newSale.endSale();
+        Sale newSale2 = new Sale(new Customer("BOB-124", new LineItem[]{new LineItem(3, new PhysicalItem(98532))}), new CashRegister(
+                
+                new ReceiptPrinter(new OutputGUI())));
+        newSale2.endSale();
     }
     
 }
