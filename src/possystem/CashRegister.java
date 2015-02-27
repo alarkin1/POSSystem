@@ -23,7 +23,7 @@ public class CashRegister {
 
     }
 
-    public String processLineItems(LineItem[] customersLineItems, String customerId) {
+    public void processLineItems(LineItem[] customersLineItems, String customerId) {
         String receiptOutput = "";
         receiptOutput += "Thank you for shopping at Kohls, " + virtualReceipt.getDatabase().findCustomerAndReturnCustomer(customerId).getName().toUpperCase() + "\n";
         receiptOutput += "------------------------------------------------------\n";
@@ -51,8 +51,7 @@ public class CashRegister {
         receiptOutput += "$" + subtotal + " @ " + salesTaxRatePerc + "%  Tax:   $" + (subtotal * (salesTaxRatePerc / 100)) + "\n";
         receiptOutput += "TOTAL:  $" + subtotal + "\n\n\n";
         receiptOutput += "TOTAL SAVED:        $" + totalSaved + "\n";
-        System.out.println(receiptOutput);
-        return receiptOutput;
+        virtualReceipt.setReceiptText(receiptOutput);
     }
     
 }
