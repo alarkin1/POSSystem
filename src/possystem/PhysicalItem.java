@@ -10,6 +10,18 @@ package possystem;
  * @author Alex
  */
 public class PhysicalItem {
-    String productId;
-    int quantity;
+
+    private int upc;
+
+    public PhysicalItem(int upc) {
+        this.upc = upc;
+    }
+
+    public int getUpc() {
+        return upc;
+    }
+
+    public void setUpc(int upc) {
+        this.upc = upc;
+    }
 }

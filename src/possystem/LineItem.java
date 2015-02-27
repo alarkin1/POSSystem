@@ -12,15 +12,11 @@ package possystem;
 public class LineItem {
 
     private int quantity;
-    private ProductStrategy product;
-    private double costOfLineItem;
-    private double totalSavingsForLineItem;
+    private PhysicalItem item;
 
-    public LineItem(ProductStrategy product, int quantity) {
+    public LineItem(int quantity, PhysicalItem item) {
         this.quantity = quantity;
-        this.product = product;
-        costOfLineItem = product.getDiscountStrategy().calculateAndReturnDiscountedPrice(product.getPrice(), quantity);
-        totalSavingsForLineItem = product.getDiscountStrategy().calculateAndReturnSavings(product.getPrice(), quantity);
+        this.item = item;
     }
 
     public int getQuantity() {
@@ -31,28 +27,12 @@ public class LineItem {
         this.quantity = quantity;
     }
 
-    public ProductStrategy getProduct() {
-        return product;
+    public PhysicalItem getItem() {
+        return item;
     }
 
-    public void setProduct(ProductStrategy product) {
-        this.product = product;
+    public void setItem(PhysicalItem item) {
+        this.item = item;
     }
-
-    public double getCostOfLineItem() {
-        return costOfLineItem;
-    }
-
-    public void setCostOfLineItem(double costOfLineItem) {
-        costOfLineItem = product.getDiscountStrategy().calculateAndReturnDiscountedPrice(product.getPrice(), quantity);
-    }
-
-    public double getTotalSavingsForLineItem() {
-        return totalSavingsForLineItem;
-    }
-
-    public void setTotalSavingsForLineItem() {
-        totalSavingsForLineItem = product.getDiscountStrategy().calculateAndReturnSavings(costOfLineItem, quantity);//.calculateAndReturnSavings(product.getPrice(), quantity);
-    }
-
+    
 }

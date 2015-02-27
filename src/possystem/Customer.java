@@ -12,12 +12,13 @@ package possystem;
 public class Customer {
 
     private String customerID;
-    private PhysicalItem[] customerItems;
+    private LineItem[] custLineItems;
 
-    public Customer(String customerID) {
+    public Customer(String customerID, LineItem[] custLineItems) {
         this.customerID = customerID;
+        this.custLineItems = custLineItems;
     }
-    
+
     public String getCustomerID() {
         return customerID;
     }
@@ -26,13 +27,12 @@ public class Customer {
         this.customerID = customerID;
     }
 
-    public PhysicalItem[] getCustomerItems() {
-        return customerItems;
+    public LineItem[] getCustomerItems() {
+        return custLineItems;
     }
 
-    public void setCustomerItems(PhysicalItem[] customerItems) {
-        this.customerItems = customerItems;
+    public void setCustomerItems(LineItem[] custLineItems) {
+        this.custLineItems = custLineItems;
     }
-   
-    
+
 }

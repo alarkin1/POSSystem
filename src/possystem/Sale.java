@@ -13,6 +13,7 @@ public class Sale {
 
     private Customer newCustomer;
     private CashRegister newCashRegister;
+    private PhysicalItem[] itemsToBePurchased;
 
     public Sale(Customer newCustomer, CashRegister newCashRegister) {
         this.newCustomer = newCustomer;
@@ -20,7 +21,7 @@ public class Sale {
     }
 
     public void startSale() {
-       // newCashRegister.processLineItems(newCustomer.getCustomersLineItems());
+        // newCashRegister.processLineItems(newCustomer.getCustomersLineItems());
     }
 
     public Customer getNewCustomer() {
@@ -37,6 +38,10 @@ public class Sale {
 
     public void setNewCashRegister(CashRegister newCashRegister) {
         this.newCashRegister = newCashRegister;
+    }
+
+    public void addCustItemsToSale(Customer newCustomer) {
+        System.arraycopy(newCustomer.getCustomerItems(), 0, itemsToBePurchased, 0, newCustomer.getCustomerItems().length+1);
     }
 
 }

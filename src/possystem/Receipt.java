@@ -9,6 +9,6 @@ package possystem;
  *
  * @author Alex
  */
-public interface DiscountCalcStrategy {
-    public abstract double calculateAndReturnSavings(double price, int quantity);
+public class Receipt {
+    private Database database = new Database();
 }

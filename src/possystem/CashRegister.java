@@ -10,16 +10,14 @@ package possystem;
  * @author Alex
  */
 public class CashRegister {
-
-//    private ReceiptPrinter receiptPrinter = new ReceiptPrinter();
-//    private CustomerReader customerReader = new CustomerReader();
+   // private CustomerReader customerReader = new CustomerReader();
+    private Receipt virtualReceipt = new Receipt();
     public CashRegister() {
-        
+       // virtualReceipt.
     }
 
     public void processLineItems(LineItem[] customersLineItems) {
 
     }
-
 
 }
