@@ -9,16 +9,22 @@ package possystem;
  *
  * @author Alex
  */
-public class RecordedCustomer implements DatabaseCustomer{
+public class RecordedCustomer implements DatabaseCustomerStrategy{
     String name;
-
-    public RecordedCustomer(String name) {
+    String customerId;
+    public RecordedCustomer(String name, String customerId) {
         this.name = name;
+        this.customerId = customerId;
     }
 
     @Override
     public String getName() {
         return name;
+    }
+
+    @Override
+    public String getCustomerId() {
+        return customerId;
     }
     
 }

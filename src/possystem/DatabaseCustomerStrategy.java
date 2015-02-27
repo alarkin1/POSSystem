@@ -9,6 +9,7 @@ package possystem;
  *
  * @author Alex
  */
-public interface DatabaseCustomer {
+public interface DatabaseCustomerStrategy {
     public abstract String getName();
+    public abstract String getCustomerId();
 }

@@ -14,7 +14,7 @@ public class Database {
     private ProductStrategy[] tableOfProducts = {
         new PackerBallCap(new DiscountByProduct(new DiscountCalcFlat(10.0)), 20.0)
     };
-    private Customer[] tableOfCustomers = {};
+    private DatabaseCustomerStrategy[] tableOfCustomers = { new RecordedCustomer("Bob The Liberal", "BOB-123")};
 
     public Database() {
 //        System.out.println(tableOfProducts[0].getProductName());
@@ -30,14 +30,16 @@ public class Database {
         return null;
     }
 
-    public Customer findCustomerAndReturnCustomer(String customerId) {
-        for (Customer customer : tableOfCustomers) {
-            if (customer.getCustomerID() == customerId) {
-                return customer;
+    public DatabaseCustomerStrategy findCustomerAndReturnCustomer(String customerId) {
+        for (DatabaseCustomerStrategy databaseCustomer : tableOfCustomers) {
+            if (databaseCustomer.getCustomerId() == customerId) {
+                System.out.println("hrr");
+                System.out.println(databaseCustomer.getName());
+                return databaseCustomer;
             }
         }
         System.out.println("Error: That customer doesn't exist in the database!");
-        return null;
+        return new AnonymousCustomer();
     }
 
 }

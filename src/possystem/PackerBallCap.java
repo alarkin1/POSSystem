@@ -11,7 +11,7 @@ package possystem;
  */
 public class PackerBallCap implements ProductStrategy {
 
-    private int upc = 12438580;
+    private int upc = 98532;
     private String productName = "Packer Ball Cap";
     private DiscountStrategy discount;
     private double price;

@@ -12,8 +12,12 @@ package possystem;
 public class Receipt {
 
     private Database database = new Database();
-
+ 
     public void outputReceipt(String customerId) {
-        System.out.println(database.findCustomerAndReturnCustomer(customerId));
+        System.out.println(database.findCustomerAndReturnCustomer(customerId).getName());
+    }
+    
+    public Database getDatabase(){
+        return database;
     }
 }

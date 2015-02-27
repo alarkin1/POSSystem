@@ -9,12 +9,17 @@ package possystem;
  *
  * @author Alex
  */
-public class AnonymousCustomer implements DatabaseCustomer {
+public class AnonymousCustomer implements DatabaseCustomerStrategy {
 
     String name = "Anonymous Customer";
+    String customerId = "00000000";
 
     public String getName() {
         return name;
+    }
+
+    public String getCustomerId() {
+        return customerId;
     }
 
 }

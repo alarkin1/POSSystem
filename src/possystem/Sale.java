@@ -21,7 +21,7 @@ public class Sale {
     }
 
     public void startSale() {
-        // newCashRegister.processLineItems(newCustomer.getCustomersLineItems());
+        newCashRegister.processLineItems(newCustomer.getCustomerItems(), "BOB-123");
     }
 
     public Customer getNewCustomer() {
@@ -41,6 +41,6 @@ public class Sale {
     }
 
     public void addCustItemsToSale(Customer newCustomer) {
-        System.arraycopy(newCustomer.getCustomerItems(), 0, itemsToBePurchased, 0, newCustomer.getCustomerItems().length+1);
+        System.arraycopy(newCustomer.getCustomerItems(), 0, itemsToBePurchased, 0, newCustomer.getCustomerItems().length + 1);
     }
 }
