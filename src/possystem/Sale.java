@@ -21,7 +21,7 @@ public class Sale {
     }
 
     public void startSale() {
-        newCashRegister.processLineItems(newCustomer.getCustomerItems(), "BOB-123");
+        newCashRegister.processLineItems(newCustomer.getCustomerItems(), newCustomer.getCustomerID());
     }
 
     public Customer getNewCustomer() {
