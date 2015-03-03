@@ -12,7 +12,8 @@ package possystem;
 public class Database {
 
     private ProductStrategy[] tableOfProducts = {
-        new PackerBallCap(new DiscountByProduct(new DiscountCalcFlat(10.0)), 20.0)
+        new PackerBallCap(new DiscountByProduct(new DiscountCalcFlat(10.0)), 20.0),
+        new PackerTShirt(new DiscountByProduct(new DiscountCalcFlat(5.0)), 50.0)
     };
     private DatabaseCustomerStrategy[] tableOfCustomers = {new RecordedCustomer("Bob The Fantastic", "BOB-123")};
 

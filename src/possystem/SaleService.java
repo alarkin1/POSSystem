@@ -9,15 +9,16 @@ package possystem;
  *
  * @author Alex
  */
-public class Sale {
+public class SaleService {
 
     private Customer newCustomer;
     private CashRegister newCashRegister;
     private LineItem[] itemsToBePurchased;
 
-    public Sale(Customer newCustomer, CashRegister newCashRegister) {
+    public SaleService(Customer newCustomer, CashRegister newCashRegister) {
         this.newCustomer = newCustomer;
         this.newCashRegister = newCashRegister;
+        itemsToBePurchased = newCustomer.getCustomerItems();
     }
 
     public void startSale(Customer newCustomer) {
@@ -25,7 +26,7 @@ public class Sale {
     }
 
     public void endSale() {
-        newCashRegister.processLineItems(newCustomer.getCustomerItems(), newCustomer.getCustomerID());
+        newCashRegister.processLineItems(itemsToBePurchased, newCustomer.getCustomerID());
     }
 
     public Customer getNewCustomer() {
@@ -49,6 +50,12 @@ public class Sale {
     }
 
     public void addItemsToSale(LineItem[] itemsToAdd) {
-        System.arraycopy(itemsToAdd, 0, itemsToBePurchased, 0, newCustomer.getCustomerItems().length + 1);
+        LineItem[] temp = new LineItem[itemsToAdd.length + itemsToBePurchased.length];
+        System.out.println(temp.length);
+        System.out.println(itemsToBePurchased.length);
+        System.arraycopy(itemsToBePurchased, 0, temp, 0, itemsToBePurchased.length);
+        System.arraycopy(itemsToAdd, 0, temp, itemsToBePurchased.length, itemsToAdd.length);
+        itemsToBePurchased = temp;
+        temp = null;
     }
 }
